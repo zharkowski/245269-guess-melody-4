@@ -4,9 +4,11 @@ import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 
 const App = (props) => {
   const {errorsCount} = props;
+  const buttonClickHandler = () => {};
   return (
     <WelcomeScreen
       errorsCount={errorsCount}
+      welcomeButtonClickHandler={buttonClickHandler}
     />
   );
 };
