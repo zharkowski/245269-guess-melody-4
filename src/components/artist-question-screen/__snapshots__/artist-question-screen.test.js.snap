@@ -76,7 +76,9 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
+          />
         </div>
       </div>
     </div>
@@ -88,21 +90,45 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
       >
         <input
           className="artist__input visually-hidden"
+          id="answer-0"
+          name="answer"
+          onClick={[Function]}
+          type="radio"
+          value="answer-0"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-0"
+        >
+          <img
+            alt="John Snow"
+            className="artist__picture"
+            src="https://api.adorable.io/avatars/128/1"
+          />
+          John Snow
+        </label>
+      </div>
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
           id="answer-1"
           name="answer"
+          onClick={[Function]}
           type="radio"
-          value="artist-1"
+          value="answer-1"
         />
         <label
           className="artist__name"
           htmlFor="answer-1"
         >
           <img
-            alt="Пелагея"
+            alt="Jack Daniels"
             className="artist__picture"
-            src="http://placehold.it/134x134"
+            src="https://api.adorable.io/avatars/128/2"
           />
-          Пелагея
+          Jack Daniels
         </label>
       </div>
       <div
@@ -112,41 +138,20 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
           className="artist__input visually-hidden"
           id="answer-2"
           name="answer"
+          onClick={[Function]}
           type="radio"
-          value="artist-2"
+          value="answer-2"
         />
         <label
           className="artist__name"
           htmlFor="answer-2"
         >
           <img
-            alt="Пелагея"
+            alt="Jim Beam"
             className="artist__picture"
-            src="http://placehold.it/134x134"
+            src="https://api.adorable.io/avatars/128/3"
           />
-          Краснознаменная дивизия имени моей бабушки
-        </label>
-      </div>
-      <div
-        className="artist"
-      >
-        <input
-          className="artist__input visually-hidden"
-          id="answer-3"
-          name="answer"
-          type="radio"
-          value="artist-3"
-        />
-        <label
-          className="artist__name"
-          htmlFor="answer-3"
-        >
-          <img
-            alt="Пелагея"
-            className="artist__picture"
-            src="http://placehold.it/134x134"
-          />
-          Lorde
+          Jim Beam
         </label>
       </div>
     </form>

@@ -25,6 +25,7 @@ describe(`Render ArtistQuestionScreen`, () => {
     const tree = renderer.create(
         <ArtistQuestionScreen
           question={question}
+          onAnswer={() => {}}
         />
     ).toJSON();
 
