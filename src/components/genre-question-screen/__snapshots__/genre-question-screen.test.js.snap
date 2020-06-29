@@ -87,6 +87,7 @@ exports[`Render GenreQuestionScreen Should GenreQuestionScreen render correctly 
           className="game__answer"
         >
           <input
+            checked={false}
             className="game__input visually-hidden"
             id="answer-0"
             name="answer"
@@ -120,6 +121,7 @@ exports[`Render GenreQuestionScreen Should GenreQuestionScreen render correctly 
           className="game__answer"
         >
           <input
+            checked={false}
             className="game__input visually-hidden"
             id="answer-1"
             name="answer"
@@ -153,6 +155,7 @@ exports[`Render GenreQuestionScreen Should GenreQuestionScreen render correctly 
           className="game__answer"
         >
           <input
+            checked={false}
             className="game__input visually-hidden"
             id="answer-2"
             name="answer"
@@ -186,6 +189,7 @@ exports[`Render GenreQuestionScreen Should GenreQuestionScreen render correctly 
           className="game__answer"
         >
           <input
+            checked={false}
             className="game__input visually-hidden"
             id="answer-3"
             name="answer"
