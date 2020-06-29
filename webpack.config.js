@@ -11,6 +11,7 @@ module.exports = {
     open: false,
     inline: true,
     port: 1337,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -18,10 +19,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: `babel-loader`,
         },
       }
     ],
   },
   devtool: `source-map`,
-}
+};

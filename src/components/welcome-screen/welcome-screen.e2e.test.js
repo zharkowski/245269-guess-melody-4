@@ -8,7 +8,7 @@ Enzyme.configure({
 });
 
 describe(`WelcomeScreen e2e test`, () => {
-  it(`Should welcome buttton be pressed`, () => {
+  it(`Should welcome button be pressed`, () => {
     const welcomeButtonClickHandler = jest.fn();
 
     const welcomeScreen = shallow(
