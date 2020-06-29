@@ -25,6 +25,7 @@ const App = (props) => {
         </Route>
         <Route exact path="/dev-genre">
           <GenreQuestionScreen
+            onAnswer={() => {}}
             question={genreQuestion}
           />
         </Route>

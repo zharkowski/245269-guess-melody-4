@@ -25,6 +25,7 @@ describe(`Render GenreQuestionScreen`, () => {
     const tree = renderer.create(
         <GenreQuestionScreen
           question={question}
+          onAnswer={() => {}}
         />
     ).toJSON();
 
