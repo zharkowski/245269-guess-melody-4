@@ -11,13 +11,13 @@ const GenreQuestionScreen = () => {
 
         <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
           <circle className="timer__line" cx="390" cy="390" r="370"
-            style="filter: url(#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"/>
+            style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}}/>
         </svg>
 
         <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
+          <div className="wrong"/>
+          <div className="wrong"/>
+          <div className="wrong"/>
         </div>
       </header>
 
@@ -25,9 +25,9 @@ const GenreQuestionScreen = () => {
         <h2 className="game__title">Выберите инди-рок треки</h2>
         <form className="game__tracks">
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
+            <button className="track__button track__button--play" type="button"/>
             <div className="track__status">
-              <audio></audio>
+              <audio/>
             </div>
             <div className="game__answer">
               <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1"
@@ -37,9 +37,9 @@ const GenreQuestionScreen = () => {
           </div>
 
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
+            <button className="track__button track__button--play" type="button"/>
             <div className="track__status">
-              <audio></audio>
+              <audio/>
             </div>
             <div className="game__answer">
               <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1"
@@ -49,9 +49,9 @@ const GenreQuestionScreen = () => {
           </div>
 
           <div className="track">
-            <button className="track__button track__button--pause" type="button"></button>
+            <button className="track__button track__button--pause" type="button"/>
             <div className="track__status">
-              <audio></audio>
+              <audio/>
             </div>
             <div className="game__answer">
               <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1"
@@ -61,9 +61,9 @@ const GenreQuestionScreen = () => {
           </div>
 
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
+            <button className="track__button track__button--play" type="button"/>
             <div className="track__status">
-              <audio></audio>
+              <audio/>
             </div>
             <div className="game__answer">
               <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1"

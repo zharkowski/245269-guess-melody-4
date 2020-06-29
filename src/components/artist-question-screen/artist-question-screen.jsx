@@ -11,13 +11,13 @@ const ArtistQuestionScreen = () => {
 
         <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
           <circle className="timer__line" cx="390" cy="390" r="370"
-            style="filter: url(#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"/>
+            style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}}/>
         </svg>
 
         <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
+          <div className="wrong"/>
+          <div className="wrong"/>
+          <div className="wrong"/>
         </div>
       </header>
 
@@ -25,9 +25,9 @@ const ArtistQuestionScreen = () => {
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
+            <button className="track__button track__button--play" type="button"/>
             <div className="track__status">
-              <audio></audio>
+              <audio/>
             </div>
           </div>
         </div>
