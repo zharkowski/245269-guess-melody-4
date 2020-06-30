@@ -47,7 +47,7 @@ const ArtistQuestionScreen = (props) => {
                   name="answer"
                   value={`answer-${index}`}
                   id={`answer-${index}`}
-                  onClick={(evt) => {
+                  onChange={(evt) => {
                     evt.preventDefault();
                     onAnswer(question, answer);
                   }}

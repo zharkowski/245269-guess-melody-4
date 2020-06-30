@@ -92,7 +92,7 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
           className="artist__input visually-hidden"
           id="answer-0"
           name="answer"
-          onClick={[Function]}
+          onChange={[Function]}
           type="radio"
           value="answer-0"
         />
@@ -115,7 +115,7 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
           className="artist__input visually-hidden"
           id="answer-1"
           name="answer"
-          onClick={[Function]}
+          onChange={[Function]}
           type="radio"
           value="answer-1"
         />
@@ -138,7 +138,7 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
           className="artist__input visually-hidden"
           id="answer-2"
           name="answer"
-          onClick={[Function]}
+          onChange={[Function]}
           type="radio"
           value="answer-2"
         />
