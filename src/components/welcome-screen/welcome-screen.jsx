@@ -2,15 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const WelcomeScreen = (props) => {
-  const {errorsCount, welcomeButtonClickHandler} = props;
+  const {errorsCount, onButtonClick} = props;
   return (
     <section className="main" id="root">
       <section className="welcome">
-        <div className="welcome__logo"><img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"/>
+        <div className="welcome__logo">
+          <img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"/>
         </div>
         <button
           className="welcome__button"
-          onClick={welcomeButtonClickHandler}
+          onClick={onButtonClick}
         >
           <span className="visually-hidden">
             Начать игру
@@ -30,7 +31,7 @@ const WelcomeScreen = (props) => {
 
 WelcomeScreen.propTypes = {
   errorsCount: PropTypes.number.isRequired,
-  welcomeButtonClickHandler: PropTypes.func.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
 };
 
 export default WelcomeScreen;

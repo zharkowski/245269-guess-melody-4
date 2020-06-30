@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
-
-const Settings = {
-  ERRORS_COUNT: 3,
-};
+import settings from "./mocks/settings";
+import questions from "./mocks/questions";
 
 ReactDOM.render(
     <App
-      errorsCount={Settings.ERRORS_COUNT}
+      errorsCount={settings.ERRORS_COUNT}
+      questions={questions}
     />,
     document.getElementById(`root`)
 );
