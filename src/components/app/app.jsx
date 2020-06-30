@@ -19,7 +19,7 @@ class App extends React.PureComponent {
     const {step} = this.state;
     const question = questions[step];
 
-    if (step === -1 || step >= question.length) {
+    if (step === -1 || step >= questions.length) {
       return (
         <WelcomeScreen
           errorsCount={errorsCount}
@@ -33,7 +33,7 @@ class App extends React.PureComponent {
     }
 
     if (question) {
-      switch (question.type) {
+      switch (question.mode) {
         case GameMode.ARTIST:
           return (
             <ArtistQuestionScreen
@@ -48,8 +48,8 @@ class App extends React.PureComponent {
         case GameMode.GENRE:
           return (
             <GenreQuestionScreen
-              onAnswer={() => {}}
-              question={() => {
+              question={question}
+              onAnswer={() => {
                 this.setState((prevState) => ({
                   step: prevState.step + 1,
                 }));
