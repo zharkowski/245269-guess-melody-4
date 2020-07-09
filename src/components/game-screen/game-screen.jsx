@@ -37,3 +37,5 @@ GameScreen.propTypes = {
     PropTypes.node,
   ]).isRequired,
 };
+
+export default GameScreen;
