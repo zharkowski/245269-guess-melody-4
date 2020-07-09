@@ -16,7 +16,9 @@ exports[`Render ArtistQuestionScreen Should ArtistQuestionScreen render correctl
       className="track"
     >
       <button
-        className="track__button track__button--play"
+        className="track__button track__button--pause"
+        disabled={true}
+        onClick={[Function]}
         type="button"
       />
       <div

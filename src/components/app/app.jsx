@@ -37,7 +37,7 @@ class App extends React.PureComponent {
       switch (question.mode) {
         case GameMode.ARTIST:
           return (
-            <GameScreen mode={questions.type}>
+            <GameScreen mode={question.mode}>
               <ArtistQuestionScreen
                 question={question}
                 onAnswer={() => {
@@ -50,7 +50,7 @@ class App extends React.PureComponent {
           );
         case GameMode.GENRE:
           return (
-            <GameScreen mode={question.type}>
+            <GameScreen mode={question.mode}>
               <GenreQuestionScreen
                 question={question}
                 onAnswer={() => {

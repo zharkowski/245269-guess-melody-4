@@ -45,7 +45,7 @@ export default class AudioPlayer extends React.PureComponent {
     const {isLoading, isPlaying} = this.state;
     const {src} = this.props;
     return (
-      <div className="track">
+      <>
         <button
           className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
           type="button"
@@ -55,7 +55,7 @@ export default class AudioPlayer extends React.PureComponent {
         <div className="track__status">
           <audio src={src}/>
         </div>
-      </div>
+      </>
     );
   }
 
