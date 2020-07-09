@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class AudioPlayer extends React.PureComponent {
+export default class AudioPlayer extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +50,7 @@ class AudioPlayer extends React.PureComponent {
           className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
           type="button"
           disabled={isLoading}
-          onClick={this.setState({isPlaying: !this.state.isPlaying})}
+          onClick={() => this.setState({isPlaying: !this.state.isPlaying})}
         />
         <div className="track__status">
           <audio src={src}/>
