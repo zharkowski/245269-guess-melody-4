@@ -10,7 +10,7 @@ describe(`GameScreen component render correctly`, () => {
   it(`with type GameType.ARTIST`, () => {
     const tree = renderer.create(
         <GameScreen
-          type={GameMode.ARTIST}
+          mode={GameMode.ARTIST}
         >
           {children}
         </GameScreen>
@@ -22,7 +22,7 @@ describe(`GameScreen component render correctly`, () => {
   it(`with type GameType.GENRE`, () => {
     const tree = renderer.create(
         <GameScreen
-          type={GameMode.GENRE}
+          mode={GameMode.GENRE}
         >
           {children}
         </GameScreen>

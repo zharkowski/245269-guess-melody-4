@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
+import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import ArtistQuestionScreen from "./artist-question-screen";
 
@@ -39,10 +39,11 @@ it(`Click on user answer should pass to the callback data-object from which this
     picture: `pic-one`,
   };
 
-  const ArtistQuestion = shallow(
+  const ArtistQuestion = mount(
       <ArtistQuestionScreen
         onAnswer={onAnswer}
         question={question}
+        renderPlayer={() => {}}
       />
   );
 

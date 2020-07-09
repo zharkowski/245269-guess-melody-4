@@ -2,7 +2,7 @@
 
 exports[`GameScreen component render correctly with type GameType.ARTIST 1`] = `
 <section
-  className="game game--undefined"
+  className="game game--artist"
 >
   <header
     className="game__header"
@@ -63,7 +63,7 @@ exports[`GameScreen component render correctly with type GameType.ARTIST 1`] = `
 
 exports[`GameScreen component render correctly with type GameType.GENRE 1`] = `
 <section
-  className="game game--undefined"
+  className="game game--genre"
 >
   <header
     className="game__header"
