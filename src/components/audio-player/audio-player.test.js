@@ -15,8 +15,12 @@ describe(`Render AudioPlayer`, () => {
         <AudioPlayer
           isPlaying={false}
           src={song.src}
-        />
-    ).toJSON();
+          onPlayButtonClick={() => {}}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

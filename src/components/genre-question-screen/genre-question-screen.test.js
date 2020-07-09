@@ -26,8 +26,11 @@ describe(`Render GenreQuestionScreen`, () => {
         <GenreQuestionScreen
           question={question}
           onAnswer={() => {}}
-        />
-    ).toJSON();
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

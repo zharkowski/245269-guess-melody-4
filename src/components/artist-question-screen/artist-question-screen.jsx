@@ -3,45 +3,59 @@ import PropTypes from "prop-types";
 import {GameMode} from "../../const";
 import AudioPlayer from "../audio-player/audio-player.jsx";
 
-const ArtistQuestionScreen = (props) => {
-  const {onAnswer, question} = props;
-  const {song, answers} = question;
-  return (
-    <section className="game__screen">
-      <h2 className="game__title">Кто исполняет эту песню?</h2>
-      <div className="game__track">
-        <div className="track">
-          <AudioPlayer isPlaying={true} src={song.src}/>
-        </div>
-      </div>
+class ArtistQuestionScreen extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPlaying: true,
+    };
+  }
 
-      <form className="game__artist">
-        {answers.map((answer, index) => {
-          const {picture, artist} = answer;
-          return (
-            <div key={`${index}-${artist}`} className="artist">
-              <input
-                className="artist__input visually-hidden"
-                type="radio"
-                name="answer"
-                value={`answer-${index}`}
-                id={`answer-${index}`}
-                onChange={(evt) => {
-                  evt.preventDefault();
-                  onAnswer(question, answer);
-                }}
-              />
-              <label className="artist__name" htmlFor={`answer-${index}`}>
-                <img className="artist__picture" src={picture} alt={artist}/>
-                {artist}
-              </label>
-            </div>
-          );
-        })}
-      </form>
-    </section>
-  );
-};
+  render() {
+    const {isPlaying} = this.state;
+    const {onAnswer, question} = this.props;
+    const {song, answers} = question;
+    return (
+      <section className="game__screen">
+        <h2 className="game__title">Кто исполняет эту песню?</h2>
+        <div className="game__track">
+          <div className="track">
+            <AudioPlayer
+              isPlaying={isPlaying}
+              src={song.src}
+              onPlayButtonClick={() => this.setState({isPlaying: !isPlaying})}
+            />
+          </div>
+        </div>
+
+        <form className="game__artist">
+          {answers.map((answer, index) => {
+            const {picture, artist} = answer;
+            return (
+              <div key={`${index}-${artist}`} className="artist">
+                <input
+                  className="artist__input visually-hidden"
+                  type="radio"
+                  name="answer"
+                  value={`answer-${index}`}
+                  id={`answer-${index}`}
+                  onChange={(evt) => {
+                    evt.preventDefault();
+                    onAnswer(question, answer);
+                  }}
+                />
+                <label className="artist__name" htmlFor={`answer-${index}`}>
+                  <img className="artist__picture" src={picture} alt={artist}/>
+                  {artist}
+                </label>
+              </div>
+            );
+          })}
+        </form>
+      </section>
+    );
+  }
+}
 
 ArtistQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,

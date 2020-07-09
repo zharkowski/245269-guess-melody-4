@@ -7,13 +7,14 @@ class GenreQuestionScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      activePlayer: 0,
       answers: [false, false, false, false],
     };
   }
 
   render() {
     const {onAnswer, question} = this.props;
-    const {answers: userAnswers} = this.state;
+    const {answers: userAnswers, activePlayer} = this.state;
     const {genre, answers} = question;
     return (
       <section className="game__screen">
@@ -30,7 +31,12 @@ class GenreQuestionScreen extends React.PureComponent {
             return (
               <div key={`${index}-${src}`} className="track">
                 <AudioPlayer
-                  isPlaying={false}
+                  onPlayButtonClick={() => {
+                    this.setState({
+                      activePlayer: activePlayer === index ? -1 : index,
+                    });
+                  }}
+                  isPlaying={index === activePlayer}
                   src={src}
                 />
                 <div className="game__answer">
