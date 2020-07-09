@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
+import GameScreen from "../game-screen/game-screen.jsx";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 import {GameMode} from "../../const";
@@ -36,25 +37,29 @@ class App extends React.PureComponent {
       switch (question.mode) {
         case GameMode.ARTIST:
           return (
-            <ArtistQuestionScreen
-              question={question}
-              onAnswer={() => {
-                this.setState((prevState) => ({
-                  step: prevState.step + 1,
-                }));
-              }}
-            />
+            <GameScreen mode={questions.type}>
+              <ArtistQuestionScreen
+                question={question}
+                onAnswer={() => {
+                  this.setState((prevState) => ({
+                    step: prevState.step + 1,
+                  }));
+                }}
+              />
+            </GameScreen>
           );
         case GameMode.GENRE:
           return (
-            <GenreQuestionScreen
-              question={question}
-              onAnswer={() => {
-                this.setState((prevState) => ({
-                  step: prevState.step + 1,
-                }));
-              }}
-            />
+            <GameScreen mode={question.type}>
+              <GenreQuestionScreen
+                question={question}
+                onAnswer={() => {
+                  this.setState((prevState) => ({
+                    step: prevState.step + 1,
+                  }));
+                }}
+              />
+            </GameScreen>
           );
       }
     }
