@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import ArtistQuestionScreen from "./artist-question-screen";
+import AudioPlayer from "../audio-player/audio-player";
 
 const question = {
   mode: `artist`,
@@ -26,8 +27,12 @@ describe(`Render ArtistQuestionScreen`, () => {
         <ArtistQuestionScreen
           question={question}
           onAnswer={() => {}}
-        />
-    ).toJSON();
+          renderPlayer={() => {}}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
