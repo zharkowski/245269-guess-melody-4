@@ -48,16 +48,18 @@ export default class AudioPlayer extends React.PureComponent {
     const {isLoading, isPlaying} = this.state;
     const {onPlayButtonClick} = this.props;
     const {src} = this.props;
+    const onClick = () => {
+      this.setState({isPlaying: !this.state.isPlaying});
+      onPlayButtonClick();
+    };
+
     return (
       <>
         <button
           className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
           type="button"
           disabled={isLoading}
-          onClick={() => {
-            this.setState({isPlaying: !this.state.isPlaying});
-            onPlayButtonClick();
-          }}
+          onClick={onClick}
         />
         <div className="track__status">
           <audio

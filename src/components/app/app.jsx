@@ -37,6 +37,12 @@ class App extends React.PureComponent {
       );
     }
 
+    const onAnswer = () => {
+      this.setState((prevState) => ({
+        step: prevState.step + 1,
+      }));
+    };
+
     if (question) {
       switch (question.mode) {
         case GameMode.ARTIST:
@@ -44,11 +50,7 @@ class App extends React.PureComponent {
             <GameScreen mode={question.mode}>
               <ArtistQuestionScreenWrapper
                 question={question}
-                onAnswer={() => {
-                  this.setState((prevState) => ({
-                    step: prevState.step + 1,
-                  }));
-                }}
+                onAnswer={onAnswer}
               />
             </GameScreen>
           );
@@ -57,11 +59,7 @@ class App extends React.PureComponent {
             <GameScreen mode={question.mode}>
               <GenreQuestionScreenWrapper
                 question={question}
-                onAnswer={() => {
-                  this.setState((prevState) => ({
-                    step: prevState.step + 1,
-                  }));
-                }}
+                onAnswer={onAnswer}
               />
             </GameScreen>
           );
