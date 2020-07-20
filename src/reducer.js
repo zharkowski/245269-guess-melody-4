@@ -6,6 +6,13 @@ const initialState = {
   step: -1,
 };
 
+const ActionCreator = {
+  incrementStep: () => ({
+    type: ActionType.INCREMENT_STEP,
+    payload: 1,
+  })
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.INCREMENT_MISTAKES:
@@ -21,4 +28,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export {reducer};
+export {reducer, ActionCreator};
