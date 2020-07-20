@@ -1,5 +1,6 @@
 import {reducer} from "./reducer";
 import {ActionType} from "./const";
+import {ActionCreator} from "./reducer";
 
 describe(`reducer working`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
@@ -54,6 +55,15 @@ describe(`reducer working`, () => {
     })).toEqual({
       mistakes: 0,
       step: -1,
+    });
+  });
+});
+
+describe(`Action creators work correctly`, () => {
+  it(`Action creator for incrementing step returns correct action`, () => {
+    expect(ActionCreator.incrementStep()).toEqual({
+      type: ActionType.INCREMENT_STEP,
+      payload: 1,
     });
   });
 });
