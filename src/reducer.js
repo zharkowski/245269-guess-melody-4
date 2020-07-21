@@ -1,9 +1,12 @@
 import {extend} from "./utils";
 import {ActionType, GameMode} from "./const";
+import questions from "./mocks/questions";
 
 const initialState = {
   mistakes: 0,
+  maxMistakes: 3,
   step: -1,
+  questions,
 };
 
 const isArtistAnswerCorrect = (question, userAnswer) => userAnswer.artist === question.song.artist;
@@ -40,12 +43,21 @@ const ActionCreator = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.INCREMENT_MISTAKES:
+      const mistakes = state.mistakes + action.payload;
+      if (mistakes >= state.maxMistakes) {
+        return extend({}, initialState);
+      }
       return extend(state, {
-        mistakes: state.mistakes + action.payload,
+        mistakes,
       });
+
     case ActionType.INCREMENT_STEP:
+      let nextStep = state.step + action.payload;
+      if (nextStep >= state.questions.length) {
+        return extend({}, initialState);
+      }
       return extend(state, {
-        step: state.step + action.payload,
+        step: nextStep,
       });
     default:
       return state;

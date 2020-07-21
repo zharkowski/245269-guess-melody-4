@@ -17,7 +17,7 @@ class App extends React.PureComponent {
 
   _renderGameScreen() {
     const {
-      errorsCount,
+      maxMistakes,
       questions,
       onUserAnswer,
       onWelcomeButtonClick,
@@ -28,7 +28,7 @@ class App extends React.PureComponent {
     if (step === -1 || step >= questions.length) {
       return (
         <WelcomeScreen
-          errorsCount={errorsCount}
+          errorsCount={maxMistakes}
           onButtonClick={onWelcomeButtonClick}
         />
       );
@@ -88,7 +88,7 @@ class App extends React.PureComponent {
 }
 
 App.propTypes = {
-  errorsCount: PropTypes.number.isRequired,
+  maxMistakes: PropTypes.number.isRequired,
   questions: PropTypes.array.isRequired,
   onWelcomeButtonClick: PropTypes.func.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
@@ -97,6 +97,8 @@ App.propTypes = {
 
 const mapStateToProps = (state) => ({
   step: state.step,
+  maxMistakes: state.maxMistakes,
+  questions: state.questions,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -104,8 +106,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.incrementStep());
   },
   onUserAnswer(question, answer) {
-    dispatch(ActionCreator.incrementStep());
     dispatch(ActionCreator.incrementMistake(question, answer));
+    dispatch(ActionCreator.incrementStep());
   }
 });
 
