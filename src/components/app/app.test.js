@@ -53,6 +53,7 @@ describe(`Render App`, () => {
             onWelcomeButtonClick={() => {}}
             onUserAnswer={() => {}}
             step={-1}
+            maxMistakes={3}
           />
         </Provider>
     ).toJSON();
@@ -72,6 +73,7 @@ describe(`Render App`, () => {
             onUserAnswer={() => {}}
             onWelcomeButtonClick={() => {}}
             step={0}
+            maxMistakes={3}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -94,6 +96,7 @@ describe(`Render App`, () => {
             onUserAnswer={() => {}}
             onWelcomeButtonClick={() => {}}
             step={1}
+            maxMistakes={3}
           />
         </Provider>, {
           createNodeMock: () => {

@@ -1,12 +1,50 @@
-import {reducer} from "./reducer";
+import {reducer, ActionCreator} from "./reducer";
 import {ActionType} from "./const";
-import {ActionCreator} from "./reducer";
+
+const questions = [
+  {
+    mode: `artist`,
+    song: {
+      artist: `Jim Beam`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+    },
+    answers: [{
+      picture: `https://api.adorable.io/avatars/128/A`,
+      artist: `John Snow`,
+    }, {
+      picture: `https://api.adorable.io/avatars/128/AB`,
+      artist: `Jack Daniels`,
+    }, {
+      picture: `https://api.adorable.io/avatars/128/AC`,
+      artist: `Jim Beam`,
+    }],
+  },
+  {
+    mode: `genre`,
+    genre: `rock`,
+    answers: [{
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `rock`,
+    }, {
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `blues`,
+    }, {
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `jazz`,
+    }, {
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `rock`,
+    }],
+  }
+];
 
 describe(`reducer working`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(reducer(void 0, {})).toEqual({
       mistakes: 0,
       step: -1,
+      maxMistakes: 3,
+      questions,
     });
   });
 
@@ -14,23 +52,27 @@ describe(`reducer working`, () => {
     expect(reducer({
       mistakes: 0,
       step: -1,
+      questions,
     }, {
       type: ActionType.INCREMENT_STEP,
       payload: 1,
     })).toEqual({
       mistakes: 0,
       step: 0,
+      questions,
     });
 
     expect(reducer({
       mistakes: 0,
       step: -1,
+      questions,
     }, {
       type: ActionType.INCREMENT_STEP,
       payload: 0,
     })).toEqual({
       mistakes: 0,
       step: -1,
+      questions,
     });
   });
 
