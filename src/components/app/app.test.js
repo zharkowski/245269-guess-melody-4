@@ -1,6 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "./app.jsx";
+import {App} from "./app.jsx";
+import {Provider} from "react-redux";
+import configurateStore from "redux-mock-store";
+
+const mockStore = configurateStore([]);
 
 const questions = [{
   mode: `artist`,
@@ -37,13 +41,68 @@ const questions = [{
 }];
 
 describe(`Render App`, () => {
-  it(`Should App render correctly`, function () {
+  it(`Render WelcomeScreen`, function () {
+    const store = mockStore({
+      mistakes: 0,
+    });
     const tree = renderer.create(
-        <App
-          errorsCount={3}
-          questions={questions}
-        />
+        <Provider store={store}>
+          <App
+            errorsCount={3}
+            questions={questions}
+            onWelcomeButtonClick={() => {}}
+            onUserAnswer={() => {}}
+            step={-1}
+            maxMistakes={3}
+          />
+        </Provider>
     ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render GenreQuestionScreen`, () => {
+    const store = mockStore({
+      mistakes: 3,
+    });
+    const tree = renderer.create(
+        <Provider store={store}>
+          <App
+            errorsCount={3}
+            questions={questions}
+            onUserAnswer={() => {}}
+            onWelcomeButtonClick={() => {}}
+            step={0}
+            maxMistakes={3}
+          />
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render ArtistQuestionScreen`, () => {
+    const store = mockStore({
+      mistakes: 3,
+    });
+    const tree = renderer.create(
+        <Provider store={store}>
+          <App
+            errorsCount={3}
+            questions={questions}
+            onUserAnswer={() => {}}
+            onWelcomeButtonClick={() => {}}
+            step={1}
+            maxMistakes={3}
+          />
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
