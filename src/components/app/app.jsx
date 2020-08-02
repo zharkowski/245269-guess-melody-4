@@ -10,6 +10,8 @@ import withActivePlayer from "../../hocs/with-active-player/with-active-player";
 import withUserAnswer from "../../hocs/with-user-answer/with-user-answer";
 import {GameMode} from "../../const";
 import {ActionCreator} from "../../reducer";
+import GameOverScreen from "../game-over-screen/game-over-screen";
+import WinScreen from "../win-screen/win-screen";
 
 const GenreQuestionScreenWrapper = withActivePlayer(withUserAnswer(GenreQuestionScreen));
 const ArtistQuestionScreenWrapper = withActivePlayer(ArtistQuestionScreen);
@@ -17,6 +19,7 @@ const ArtistQuestionScreenWrapper = withActivePlayer(ArtistQuestionScreen);
 const App = React.memo((props) => {
   const {
     questions,
+    mistakesCount,
     maxMistakes,
     onUserAnswer,
     onWelcomeButtonClick,
@@ -26,11 +29,27 @@ const App = React.memo((props) => {
   const renderGameScreen = () => {
     const question = questions[step];
 
-    if (step === -1 || step >= questions.length) {
+    if (step === -1) {
       return (
         <WelcomeScreen
           errorsCount={maxMistakes}
           onButtonClick={onWelcomeButtonClick}
+        />
+      );
+    }
+
+    if (mistakesCount >= maxMistakes) {
+      return (
+        <GameOverScreen onRetryButtonClick={() => {}}/>
+      );
+    }
+
+    if (step >= questions.length) {
+      return (
+        <WinScreen
+          onRetryButtonClick={() => {}}
+          questionsCount={questions.length}
+          mistakesCount={mistakesCount}
         />
       );
     }
@@ -88,6 +107,7 @@ App.displayName = `App`;
 
 App.propTypes = {
   maxMistakes: PropTypes.number.isRequired,
+  mistakesCount: PropTypes.number.isRequired,
   questions: PropTypes.array.isRequired,
   onWelcomeButtonClick: PropTypes.func.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
@@ -98,6 +118,7 @@ const mapStateToProps = (state) => ({
   step: state.step,
   maxMistakes: state.maxMistakes,
   questions: state.questions,
+  mistakesCount: state.mistakesCount,
 });
 
 const mapDispatchToProps = (dispatch) => ({
