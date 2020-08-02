@@ -275,12 +275,15 @@ exports[`Render App Render GenreQuestionScreen 1`] = `
       >
         <button
           className="track__button track__button--pause"
+          disabled={true}
           onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
-        />
+        >
+          <audio />
+        </div>
       </div>
     </div>
     <form

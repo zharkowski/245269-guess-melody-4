@@ -3,16 +3,8 @@ import PropTypes from "prop-types";
 import {GameMode} from "../../const";
 
 class GenreQuestionScreen extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      answers: [false, false, false, false],
-    };
-  }
-
   render() {
-    const {onAnswer, question, renderPlayer} = this.props;
-    const {answers: userAnswers} = this.state;
+    const {onAnswer, onChange, question, renderPlayer, userAnswers} = this.props;
     const {genre, answers} = question;
     return (
       <section className="game__screen">
@@ -21,7 +13,7 @@ class GenreQuestionScreen extends React.PureComponent {
           className="game__tracks"
           onSubmit={(evt) => {
             evt.preventDefault();
-            onAnswer(question, this.state.answers);
+            onAnswer();
           }}
         >
           {answers.map((answer, index) => {
@@ -57,6 +49,7 @@ class GenreQuestionScreen extends React.PureComponent {
 
 GenreQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   question: PropTypes.shape({
     mode: PropTypes.oneOf([GameMode.ARTIST, GameMode.GENRE]).isRequired,
     answers: PropTypes.arrayOf(
@@ -67,6 +60,7 @@ GenreQuestionScreen.propTypes = {
     genre: PropTypes.string.isRequired,
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
+  userAnswers: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default GenreQuestionScreen;
