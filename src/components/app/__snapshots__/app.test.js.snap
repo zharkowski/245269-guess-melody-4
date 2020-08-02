@@ -74,17 +74,12 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
       >
         <button
           className="track__button track__button--pause"
-          disabled={true}
           onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
-        >
-          <audio
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
-          />
-        </div>
+        />
         <div
           className="game__answer"
         >
@@ -110,17 +105,12 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
       >
         <button
           className="track__button track__button--play"
-          disabled={true}
           onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
-        >
-          <audio
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
-          />
-        </div>
+        />
         <div
           className="game__answer"
         >
@@ -146,17 +136,12 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
       >
         <button
           className="track__button track__button--play"
-          disabled={true}
           onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
-        >
-          <audio
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
-          />
-        </div>
+        />
         <div
           className="game__answer"
         >
@@ -182,17 +167,12 @@ exports[`Render App Render ArtistQuestionScreen 1`] = `
       >
         <button
           className="track__button track__button--play"
-          disabled={true}
           onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
-        >
-          <audio
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
-          />
-        </div>
+        />
         <div
           className="game__answer"
         >
@@ -295,17 +275,12 @@ exports[`Render App Render GenreQuestionScreen 1`] = `
       >
         <button
           className="track__button track__button--pause"
-          disabled={true}
           onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
-        >
-          <audio
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg"
-          />
-        </div>
+        />
       </div>
     </div>
     <form
