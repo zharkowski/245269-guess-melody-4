@@ -1,25 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class AudioPlayer extends React.PureComponent {
-  render() {
-    const {isLoading, isPlaying, onPlayButtonClick, children} = this.props;
+const AudioPlayer = React.memo((props) => {
+  const {isLoading, isPlaying, onPlayButtonClick, children} = props;
 
-    return (
-      <>
-        <button
-          className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
-          type="button"
-          disabled={isLoading}
-          onClick={onPlayButtonClick}
-        />
-        <div className="track__status">
-          {children}
-        </div>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <button
+        className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
+        type="button"
+        disabled={isLoading}
+        onClick={onPlayButtonClick}
+      />
+      <div className="track__status">
+        {children}
+      </div>
+    </>
+  );
+});
+
+AudioPlayer.displayName = `AudioPlayer`;
 
 AudioPlayer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
@@ -30,3 +30,5 @@ AudioPlayer.propTypes = {
     PropTypes.node
   ]).isRequired,
 };
+
+export default AudioPlayer;

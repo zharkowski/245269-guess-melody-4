@@ -14,16 +14,16 @@ import {ActionCreator} from "../../reducer";
 const GenreQuestionScreenWrapper = withActivePlayer(withUserAnswer(GenreQuestionScreen));
 const ArtistQuestionScreenWrapper = withActivePlayer(ArtistQuestionScreen);
 
-class App extends React.PureComponent {
-
-  _renderGameScreen() {
-    const {
-      maxMistakes,
-      questions,
-      onUserAnswer,
-      onWelcomeButtonClick,
-      step
-    } = this.props;
+const App = React.memo((props) => {
+  const {
+    questions,
+    maxMistakes,
+    onUserAnswer,
+    onWelcomeButtonClick,
+    step
+  } = props;
+  const [artistQuestion, genreQuestion] = questions;
+  const renderGameScreen = () => {
     const question = questions[step];
 
     if (step === -1 || step >= questions.length) {
@@ -59,34 +59,32 @@ class App extends React.PureComponent {
     }
 
     return null;
-  }
+  };
 
-  render() {
-    const {questions} = this.props;
-    const [artistQuestion, genreQuestion] = questions;
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            {this._renderGameScreen()}
-          </Route>
-          <Route exact path="/dev-artist">
-            <ArtistQuestionScreenWrapper
-              onAnswer={() => {}}
-              question={artistQuestion}
-            />
-          </Route>
-          <Route exact path="/dev-genre">
-            <GenreQuestionScreenWrapper
-              onAnswer={() => {}}
-              question={genreQuestion}
-            />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          {renderGameScreen()}
+        </Route>
+        <Route exact path="/dev-artist">
+          <ArtistQuestionScreenWrapper
+            onAnswer={() => {}}
+            question={artistQuestion}
+          />
+        </Route>
+        <Route exact path="/dev-genre">
+          <GenreQuestionScreenWrapper
+            onAnswer={() => {}}
+            question={genreQuestion}
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+});
+
+App.displayName = `App`;
 
 App.propTypes = {
   maxMistakes: PropTypes.number.isRequired,
