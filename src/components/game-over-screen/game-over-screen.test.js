@@ -5,7 +5,7 @@ import GameOverScreen from "./game-over-screen.jsx";
 it(`Should GameOverScreen render correctly`, () => {
   const tree = renderer
     .create(<GameOverScreen
-      onReplayButtonClick={() => {}}
+      onRetryButtonClick={() => {}}
     />)
     .toJSON();
 

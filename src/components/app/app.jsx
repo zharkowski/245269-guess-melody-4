@@ -118,7 +118,7 @@ const mapStateToProps = (state) => ({
   step: state.step,
   maxMistakes: state.maxMistakes,
   questions: state.questions,
-  mistakesCount: state.mistakesCount,
+  mistakesCount: state.mistakes,
 });
 
 const mapDispatchToProps = (dispatch) => ({

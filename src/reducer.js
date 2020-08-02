@@ -44,18 +44,12 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.INCREMENT_MISTAKES:
       const mistakes = state.mistakes + action.payload;
-      if (mistakes >= state.maxMistakes) {
-        return extend({}, initialState);
-      }
       return extend(state, {
         mistakes,
       });
 
     case ActionType.INCREMENT_STEP:
       let nextStep = state.step + action.payload;
-      if (nextStep >= state.questions.length) {
-        return extend({}, initialState);
-      }
       return extend(state, {
         step: nextStep,
       });
