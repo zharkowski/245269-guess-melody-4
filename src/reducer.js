@@ -38,21 +38,32 @@ const ActionCreator = {
       payload: isAnswerCorrect ? 0 : 1,
     };
   },
+
+  reset: () => {
+    return {
+      type: ActionType.RESET,
+      payload: null,
+    };
+  },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.INCREMENT_MISTAKES:
-      const mistakes = state.mistakes + action.payload;
       return extend(state, {
-        mistakes,
+        mistakes: state.mistakes + action.payload,
       });
 
     case ActionType.INCREMENT_STEP:
-      let nextStep = state.step + action.payload;
       return extend(state, {
-        step: nextStep,
+        step: state.step + action.payload,
       });
+
+    case ActionType.RESET:
+      return extend(initialState, {
+        step: 0,
+      });
+
     default:
       return state;
   }

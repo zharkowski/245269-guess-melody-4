@@ -23,6 +23,7 @@ const App = React.memo((props) => {
     maxMistakes,
     onUserAnswer,
     onWelcomeButtonClick,
+    resetGame,
     step
   } = props;
   const [artistQuestion, genreQuestion] = questions;
@@ -40,14 +41,14 @@ const App = React.memo((props) => {
 
     if (mistakesCount >= maxMistakes) {
       return (
-        <GameOverScreen onRetryButtonClick={() => {}}/>
+        <GameOverScreen onRetryButtonClick={resetGame}/>
       );
     }
 
     if (step >= questions.length) {
       return (
         <WinScreen
-          onRetryButtonClick={() => {}}
+          onRetryButtonClick={resetGame}
           questionsCount={questions.length}
           mistakesCount={mistakesCount}
         />
@@ -111,6 +112,7 @@ App.propTypes = {
   questions: PropTypes.array.isRequired,
   onWelcomeButtonClick: PropTypes.func.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
 };
 
@@ -128,7 +130,10 @@ const mapDispatchToProps = (dispatch) => ({
   onUserAnswer(question, answer) {
     dispatch(ActionCreator.incrementMistake(question, answer));
     dispatch(ActionCreator.incrementStep());
-  }
+  },
+  resetGame() {
+    dispatch(ActionCreator.reset());
+  },
 });
 
 export {App};

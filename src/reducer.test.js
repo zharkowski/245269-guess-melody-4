@@ -99,6 +99,47 @@ describe(`reducer working`, () => {
       step: -1,
     });
   });
+
+  it(`Reducer should return default`, () => {
+    expect(reducer({
+      step: 5,
+      mistakes: 1,
+    }, {
+      type: ActionType.RESET,
+      payload: null,
+    })).toEqual({
+      step: 0,
+      mistakes: 0,
+      maxMistakes: 3,
+      questions,
+    });
+
+    expect(reducer({
+      step: 0,
+      mistakes: 0,
+    }, {
+      type: ActionType.RESET,
+      payload: null,
+    })).toEqual({
+      step: 0,
+      mistakes: 0,
+      maxMistakes: 3,
+      questions,
+    });
+
+    expect(reducer({
+      step: -1,
+      mistakes: 0,
+    }, {
+      type: ActionType.RESET,
+      payload: null,
+    })).toEqual({
+      step: 0,
+      mistakes: 0,
+      maxMistakes: 3,
+      questions,
+    });
+  });
 });
 
 describe(`Action creators work correctly`, () => {
@@ -213,5 +254,13 @@ describe(`Action creators work correctly`, () => {
       type: ActionType.INCREMENT_MISTAKES,
       payload: 1,
     });
+  });
+
+  it(`Action creator for reset game returns action with null payload`, () => {
+    expect(ActionCreator.resetGame())
+      .toEqual({
+        type: ActionType.RESET,
+        payload: null,
+      });
   });
 });

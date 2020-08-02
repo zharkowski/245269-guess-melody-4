@@ -55,6 +55,7 @@ describe(`Render App`, () => {
             step={-1}
             maxMistakes={3}
             mistakesCount={0}
+            resetGame={() => {}}
           />
         </Provider>
     ).toJSON();
@@ -76,6 +77,7 @@ describe(`Render App`, () => {
             step={0}
             maxMistakes={3}
             mistakesCount={0}
+            resetGame={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -100,6 +102,7 @@ describe(`Render App`, () => {
             step={1}
             maxMistakes={3}
             mistakesCount={0}
+            resetGame={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -125,6 +128,7 @@ describe(`Render App`, () => {
               onWelcomeButtonClick={() => {}}
               step={1}
               mistakesCount={3}
+              resetGame={() => {}}
             />
           </Provider>, {
             createNodeMock: () => {
@@ -151,6 +155,7 @@ describe(`Render App`, () => {
               onWelcomeButtonClick={() => {}}
               step={3}
               mistakesCount={0}
+              resetGame={() => {}}
             />
           </Provider>, {
             createNodeMock: () => {
