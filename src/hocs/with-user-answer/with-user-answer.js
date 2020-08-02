@@ -9,6 +9,8 @@ const withUserAnswer = (Component) => {
       this.state = {
         answers: new Array(props.question.answers.length).fill(false),
       };
+      this.handleAnswer = this.handleAnswer.bind(this);
+      this.handleChange = this.handleChange.bind(this);
     }
 
     handleAnswer() {
@@ -33,7 +35,7 @@ const withUserAnswer = (Component) => {
       return (
         <Component
           {...this.props}
-          userAnswer={answers}
+          userAnswers={answers}
           onAnswer={this.handleAnswer}
           onChange={this.handleChange}
         />
@@ -48,7 +50,7 @@ const withUserAnswer = (Component) => {
         genre: PropTypes.string.isRequired,
       })).isRequired,
       genre: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([GameMode.ARTIST, GameMode.GENRE]).isRequired,
+      mode: PropTypes.oneOf([GameMode.ARTIST, GameMode.GENRE]).isRequired,
     }).isRequired,
     onAnswer: PropTypes.func.isRequired
   };

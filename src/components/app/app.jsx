@@ -7,10 +7,11 @@ import GameScreen from "../game-screen/game-screen.jsx";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 import withActivePlayer from "../../hocs/with-active-player/with-active-player";
+import withUserAnswer from "../../hocs/with-user-answer/with-user-answer";
 import {GameMode} from "../../const";
 import {ActionCreator} from "../../reducer";
 
-const GenreQuestionScreenWrapper = withActivePlayer(GenreQuestionScreen);
+const GenreQuestionScreenWrapper = withActivePlayer(withUserAnswer(GenreQuestionScreen));
 const ArtistQuestionScreenWrapper = withActivePlayer(ArtistQuestionScreen);
 
 class App extends React.PureComponent {

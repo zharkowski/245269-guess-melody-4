@@ -10,7 +10,7 @@ const MockComponentWithUserAnswer = withUserAnswer(MockComponent);
 
 const mock = {
   question: {
-    type: `genre`,
+    mode: `genre`,
     genre: `rock`,
     answers: [
       {
