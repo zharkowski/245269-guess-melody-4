@@ -257,7 +257,7 @@ describe(`Action creators work correctly`, () => {
   });
 
   it(`Action creator for reset game returns action with null payload`, () => {
-    expect(ActionCreator.resetGame())
+    expect(ActionCreator.reset())
       .toEqual({
         type: ActionType.RESET,
         payload: null,

@@ -61,7 +61,7 @@ exports[`Should WinScreen render correctly With 2 questions With 1 mistake 1`] =
     className="result__total"
   >
     Вы ответили правильно на 
-    2
+    1
      вопросов и совершили 
     1
      ошибки
@@ -137,7 +137,7 @@ exports[`Should WinScreen render correctly With 3 questions With 1 mistake 1`] =
     className="result__total"
   >
     Вы ответили правильно на 
-    3
+    2
      вопросов и совершили 
     1
      ошибки
